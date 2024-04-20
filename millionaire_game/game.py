@@ -25,3 +25,43 @@ class Game:
 
     def __str__(self):
         return f"Current score: {self._score}"
+
+    def __len__(self):
+        return len(self.questions)
+
+    def __getitem__(self, index):
+        if index <= len(self.questions):
+            return self.questions[index]
+        else:
+            return None
+
+    def __setitem__(self, index, value):
+        self.questions[index] = value
+
+from question import Question
+question_list = [
+    Question("What is the capital of France?", ["London", "Paris", "Berlin", "Madrid"], "Paris"),
+    Question("What is 2 + 2?", ["3", "4", "2", "5"], "4"),
+    Question("Who wrote 'Macbeth'?", ["Shakespeare", "Austen", "Joyce", "Hemingway"], "Shakespeare")
+    ]
+
+obj = Game(question_list)
+print(obj.__len__())
+
+print()
+print(obj[4])
+
+
+
+
+# Utwórz dla TimedGame i HintGame specyficzne dla nich metody specjalne __str__
+
+# Dodatkowo do klasy Game dodaj __getitem__ i __setitem__
+# jako metody, które można użyć do bezpośredniego dostępu do pytań w grze,
+# traktując obiekt gry jak kontener.
+# len - metoda może zwracać liczbę pytań w grze.
+
+
+    # Przykład użycia
+    # game[0] zwróci pierwsze pytanie
+    # game[0] = new_question ustawi nowe pytanie na pierwszej pozycji, gdzie new_question jest obiektem typu Question
