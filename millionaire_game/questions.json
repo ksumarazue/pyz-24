@@ -1,0 +1,62 @@
+[
+    {
+        "question": "What is the capital of France?",
+        "options": ["London", "Paris", "Berlin", "Madrid"],
+        "correct_answer": "Paris",
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is 2 + 2?",
+        "options": ["3", "4", "2", "5"],
+        "correct_answer": "4",
+        "difficulty": "easy"
+    },
+    {
+        "question": "Who wrote 'Macbeth'?",
+        "options": ["Shakespeare", "Austen", "Joyce", "Hemingway"],
+        "correct_answer": "Shakespeare",
+        "difficulty": "medium"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Earth", "Venus", "Mars", "Jupiter"],
+        "correct_answer": "Mars",
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the chemical symbol for water?",
+        "options": ["O2", "H2O", "CO2", "NaCl"],
+        "correct_answer": "H2O",
+        "difficulty": "easy"
+    },
+    {
+        "question": "Who discovered penicillin?",
+        "options": ["Alexander Fleming", "Marie Curie", "Thomas Edison", "Albert Einstein"],
+        "correct_answer": "Alexander Fleming",
+        "difficulty": "medium"
+    },
+    {
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "correct_answer": "Pacific Ocean",
+        "difficulty": "easy"
+    },
+    {
+        "question": "What year did the Titanic sink?",
+        "options": ["1912", "1905", "1898", "1923"],
+        "correct_answer": "1912",
+        "difficulty": "medium"
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Vincent Van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+        "correct_answer": "Leonardo da Vinci",
+        "difficulty": "easy"
+    },
+    {
+        "question": "What is the hardest natural substance on Earth?",
+        "options": ["Gold", "Iron", "Diamond", "Quartz"],
+        "correct_answer": "Diamond",
+        "difficulty": "medium"
+    }
+]

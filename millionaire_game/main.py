@@ -1,7 +1,7 @@
 from game import Game
 from hinted_game import HintGame
+from fileloader import load_questions_from_file
 from timed_game import TimedGame
-from question import Question
 
 def play_game(game):
     print("Welcome to the Millionaire Game!\n")
@@ -35,11 +35,7 @@ def play_game(game):
 
 
 def main():
-    question_list = [
-        Question("What is the capital of France?", ["London", "Paris", "Berlin", "Madrid"], "Paris"),
-        Question("What is 2 + 2?", ["3", "4", "2", "5"], "4"),
-        Question("Who wrote 'Macbeth'?", ["Shakespeare", "Austen", "Joyce", "Hemingway"], "Shakespeare")
-    ]
+    question_list = load_questions_from_file('questions.json')
 
     while True:
         quests = """What kind of game you wanna play
