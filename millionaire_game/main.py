@@ -3,6 +3,9 @@ from hinted_game import HintGame
 from fileloader import load_questions_from_file
 from timed_game import TimedGame
 
+# def difficulty_filter():
+
+
 def play_game(game):
     print("Welcome to the Millionaire Game!\n")
     while True:
@@ -33,9 +36,17 @@ def play_game(game):
             break
     print(f"Your final score is: {game.get_score()}")
 
+def difficulty_filter(level):
+    def filter_questions(question):
+        return question.difficulty == level
+    return filter_questions
+
 
 def main():
     question_list = load_questions_from_file('questions.json')
+    # TO-DO: dodać odczytywanie poziomu od użytkownika
+
+    easy_questions = list(filter(difficulty_filter('easy'), question_list))
 
     while True:
         quests = """What kind of game you wanna play

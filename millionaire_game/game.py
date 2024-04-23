@@ -1,12 +1,22 @@
 def check_answer_correct(question, answer):
     return question.correct_answer == answer
 
+def score_modifier(base_score):
+    def calulate(answer_correct):
+        if answer_correct:
+            return base_score * 2
+        return -50
+    return calulate
+
+
 class Game:
     def __init__(self, questions):
         self.questions = questions
         self._current_question_index = 0
         self._score = 0
         self.check = check_answer_correct
+        self.calculate_score = score_modifier(100)
+
 
     def __str__(self):
         return f"Current score: {self._score}"
@@ -35,9 +45,11 @@ class Game:
     def submit_answer(self, answer):
         current_question = self.questions[self._current_question_index - 1]
         if self.check(current_question, answer):
-            self._score += 100
+            self._score = self.calculate_score(True)
+            # self._score += 100
             return True
         else:
+            self._score += self.calculate_score(False)
             return False
 
     def get_score(self):
