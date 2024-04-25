@@ -36,41 +36,49 @@ def play_game(game):
 
 
 def main():
-    question_list = [
-        Question("What is the capital of France?", ["London", "Paris", "Berlin", "Madrid"], "Paris"),
-        Question("What is 2 + 2?", ["3", "4", "2", "5"], "4"),
-        Question("Who wrote 'Macbeth'?", ["Shakespeare", "Austen", "Joyce", "Hemingway"], "Shakespeare")
-    ]
+    # question_list = [
+    #     Question("What is the capital of France?", ["London", "Paris", "Berlin", "Madrid"], "Paris"),
+    #     Question("What is 2 + 2?", ["3", "4", "2", "5"], "4"),
+    #     Question("Who wrote 'Macbeth'?", ["Shakespeare", "Austen", "Joyce", "Hemingway"], "Shakespeare")
+    # ]
 
+    with open('jsonQuest.json', 'r') as read_json:
+        data = json.load(read_json)
+        # questionFileList = []
+    # print(data[:])
+    question_file_list = []
+    for i in data:
+        # print(i['question'])
+        questFile = Question(i['question'], i['options'], i['correct_answer'])
+        question_file_list.append(questFile)
+        # questionFileList.append(Question(i['question'], i['options'], i['correct_answer']))
 
+    print(type(question_file_list))
+    # for i in question_file_list:
+    #     print(i)
     while True:
-        select_question = input('Choice 1 for question from program\nChoice 2 for questrion from file: ')
-        if select_question == 1:
-            quests = """What kind of game you wanna play
-             1 - normal
-             2 - with hints 
-             3 - timed
-              Select -> """
+        quests = """What kind of game you wanna play
+        1 - normal
+        2 - with hints 
+        3 - timed
+        Select -> """
 
-            selected_game = input(quests)
 
-            if selected_game == '1':
-                game_instance = Game(question_list)
-                break
-            elif selected_game == '2':
-                game_instance = HintGame(question_list, 3)
-                break
-            elif selected_game == '3':
-                game_instance = TimedGame(question_list, 20)
-                break
-            else:
-                print('No such option, please try again')
-        elif selected_game == 2:
-            with open('jsonQuest.json', 'r') as read_json:
-                data = json.load(read_json)
-            questionFileList = []
-            for i in data:
-                questionFileList.append(Question(i['question'], i['options'], i['correct_answer']))
+        selected_game = input(quests)
+
+        if selected_game == '1':
+            game_instance = Game(question_file_list)
+            break
+        elif selected_game == '2':
+            game_instance = HintGame(question_file_list, 3)
+            break
+        elif selected_game == '3':
+            game_instance = TimedGame(question_file_list, 20)
+            break
+        else:
+            print('No such option, please try again')
+
+
 
     play_game(game_instance)
 
