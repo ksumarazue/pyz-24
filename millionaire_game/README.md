@@ -10,4 +10,4 @@
         `game_instance = Game.from_json('questions.json')`
 4.  `@staticmethod `
         Dodaj metodę walidacji odpowiedzi podanej przez użytkownika, która sprawdza, czy podana odpowiedź mieści się w zakresie dostępnych opcji
-5.
+5.GIT 

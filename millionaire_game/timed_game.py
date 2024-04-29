@@ -17,8 +17,7 @@ class TimedGame(Game):
             print(f"Wrong! No more time left!")
             return False
 
-    @property
-    def best_time(self):
+    def show_best_time(self):
         # ... mechanizm teorytyczny odmierzania czasu
         return f'Player best time: {self.time_limit}'
 
@@ -38,10 +37,10 @@ def main():
 
     game = TimedGame(question_list, 10)
     print(game)
-    print(game.best_time)
+    print(game.show_best_time)
     game.time_limit = 100
     print(game)
-    print(game.best_time)
+    print(game.show_best_time)
 
 
 if __name__ == '__main__':
