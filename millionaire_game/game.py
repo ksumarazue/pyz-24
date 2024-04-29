@@ -1,7 +1,22 @@
 from question import Question
 from typing import List, Optional
+import json
+from fileloader import load_questions_from_file
+
 def check_answer_correct(question, answer):
     return question.correct_answer == answer
+
+
+def log_answers(func):
+    def wrapper(self, *args, **kwargs):
+        # *args --> argumenty przekazane do  funkcji/metody, można wtedy przekazać dowolną ilość
+        # **kwargs --> nazewnictwo argumentów
+        print('*' * 30)
+        result = func(self, *args, **kwargs)
+        print(f'Your answer: {args[0]}')
+        print(f'Score {self._score}')
+        return result
+    return wrapper
 
 
 class Game:
@@ -10,6 +25,26 @@ class Game:
         self._current_question_index = 0
         self._score = 0
         self.check = check_answer_correct
+
+
+    @classmethod
+    def from_json(cls, filename):
+        #PIERWSZE ROZWIAZANIE
+        # with open(filename, 'r') as file:
+        #     data = json.load(file)
+        # questions = []
+        # for item in data:
+        #     question = Question(
+        #         item['question'],
+        #         item['options'],
+        #         item['correct_answer'],
+        #         item['difficulty']
+        #     )
+        #     questions.append(question)
+        # # return questions
+        # return cls(questions)
+        questions = load_questions_from_file(filename)
+        return cls(questions)
 
 
     def __str__(self):
@@ -40,6 +75,8 @@ class Game:
         else:
             return None
 
+
+    @log_answers
     def submit_answer(self, answer: str) -> bool:
         current_question = self.questions[self._current_question_index - 1]
         if self.check(current_question, answer):

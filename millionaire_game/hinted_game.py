@@ -6,6 +6,8 @@ class HintGame(Game):
     def __init__(self, questions):
         super().__init__(questions)
 
+
+
     def request_hint(self, current_question):
         if self.hints_allowed > 0:
             print(f"Hint: The answer starts with {current_question.correct_answer[0]}")
@@ -23,6 +25,17 @@ class HintGame(Game):
             return 'We play!'
         return 'Sorry no!'
 
+
+    @property
+    def score(self):
+        return self.score
+
+
+    @property
+    def remaining_questions(self):
+        # remaining_questions = len(self.questions) - (self._current_question_index)
+        # return remaining_questions
+        return len(self.questions) - (self._current_question_index)
 
 
 
