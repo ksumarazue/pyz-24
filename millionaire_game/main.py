@@ -1,13 +1,19 @@
 from game import Game
 from hinted_game import HintGame
-from fileloader import load_questions_from_file
+from fileloader import load_questions_from_file, save_to_file
 from timed_game import TimedGame
+
 
 def play_game(game):
     print("Welcome to the Millionaire Game!\n")
     while True:
         question = game.get_next_question()
         print(question)
+
+        file_name = 'game.json'
+        choice = input('Save game to file? Y/N')
+        if choice == 'Y' or choice == 'y':
+            save_to_file(game.get_score(), game._current_question_index, file_name)
 
         if isinstance(game, HintGame):
             while True:
@@ -26,12 +32,17 @@ def play_game(game):
 
         answer = input("Please enter the number of your answer: ")
 
-        if game.submit_answer(question.options[int(answer) - 1]):
+        if Game.is_walid(int(answer), question.options) and game.submit_answer(question.options[int(answer) - 1]):
             print("The correct answer --> ", question.correct_answer)
             print(f"Current score: {game.get_score()}")
         else:
             break
     print(f"Your final score is: {game.get_score()}")
+
+
+    # print(f'Your score {game.get_score()} and {game._current_question_index}')
+
+
 
 
 def main():

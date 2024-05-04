@@ -15,3 +15,10 @@ def load_questions_from_file(filename):
         )
         questions.append(question)
     return questions
+
+def save_to_file(score, current_question, filename):
+    game_score = {'score': score, 'current_index' : current_question}
+    with open(filename, 'w') as file:
+        json.dump(game_score, file, indent=4)
+
+

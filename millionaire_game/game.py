@@ -46,6 +46,15 @@ class Game:
         questions = load_questions_from_file(filename)
         return cls(questions)
 
+    @staticmethod
+    def is_walid(answer_nr: int, options: list) -> bool:
+        # if 0 < answer_nr <= len(options):
+        #     return True
+        # else:
+        #     print('Nie ma takiej odpowiedzi')
+        #     return False
+        return 0 < answer_nr <= len(options)
+
 
     def __str__(self):
         return f"Current score: {self._score}"
@@ -87,6 +96,10 @@ class Game:
 
     def get_score(self) -> str:
         return f'{self._score} PLN'
+
+
+
+    # def save_to_file(self):
 
 
 def main():
