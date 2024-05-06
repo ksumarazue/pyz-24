@@ -1,6 +1,6 @@
 from game import Game
 
-class HintGame(Game):
+class HintGame(Game):# Inheritance(dziedziczenie) from the class Game
     def __init__(self, questions, hints_allowed):
         super().__init__(questions)
         self.hints_allowed = hints_allowed

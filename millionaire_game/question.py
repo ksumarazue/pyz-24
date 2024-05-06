@@ -10,7 +10,7 @@ class Question:
     def __str__(self):
         return self._format_question_and_options()
 
-    def _format_question_and_options(self):
+    def _format_question_and_options(self):# private method, encapsulation
         responses = ""
         for id, res in enumerate(self.options):
             responses += f'{id + 1}) - {res}\n'

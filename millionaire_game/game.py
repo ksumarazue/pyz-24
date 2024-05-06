@@ -1,14 +1,17 @@
 class Game:
     def __init__(self, questions):
         self.questions = questions
-        self._current_question_index = 0
-        self._score = 0
+        self._current_question_index = 0 # private attributee, encapsulation
+        self._score = 0 # private attribute, encapsulation
+
 
     def __str__(self):
         return f"Current score: {self._score}"
 
+
     def __len__(self):
         return len(self.questions)
+
 
     def __getitem__(self, index):
         # return self.questions[index] if index < len(self.questions) else None
@@ -24,7 +27,7 @@ class Game:
             raise IndexError
 
 
-    def get_next_question(self):
+    def get_next_question(self):# z2 the method get_next_question has been optimized
         if self._current_question_index < len(self.questions):
             question = self.questions[self._current_question_index]
             self._current_question_index += 1
@@ -40,7 +43,7 @@ class Game:
         else:
             return False
 
-    def get_score(self):
+    def get_score(self):# method for return private attribute
         return f'{self._score} PLN'
 
 #
