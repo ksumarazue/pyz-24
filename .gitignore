@@ -13,6 +13,8 @@ build/
 venv/
 env/
 .env
+flask-first-app/flask-first-app/
+
 
 # IDE specific files
 .idea/

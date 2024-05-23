@@ -1,22 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Budget Manager App </title>
-</head>
-<body>
+{% extends "_base.html" %}
+{% block content %}
     <h1>Edit Expense</h1>
     <form action="{{ url_for('update_expense', id=expense.id )}}" method="post">
+        <div class="mb-3 col-4">
         <label for="description">Description:</label><br>
-        <input type="text" id="description" name="description" value="{{expense.description}}" required><br>
+        <input class="form-control" type="text" id="description" name="description" value="{{expense.description}}" required><br>
+        </div>
 
+        <div class="mb-3 col-4">
         <label for="amount">Amount:</label><br>
-        <input type="number" id="amount" name="amount"  value="{{expense.amount}}" required><br>
+        <input input class="form-control" type="number" id="amount" name="amount"  value="{{expense.amount}}" required><br>
+        </div>
 
+        <div class="mb-3 col-4">
         <label for="date">Date:</label><br>
-        <input type="date" id="date" name="date" value="{{expense.date}}"><br>
+        <input input class="form-control"  type="date" id="date" name="date" value="{{expense.date}}"><br>
         <br>
+        </div>
         <input type="submit" value="Submit">
     </form>
-</body>
-</html>
+{% endblock %}
+
+<form>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

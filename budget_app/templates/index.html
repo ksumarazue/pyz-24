@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Budget Manager App </title>
-</head>
-<body>
+{% extends "_base.html" %}
+{% block content %}
     <h1>Budget Manager</h1>
     <table>
         <tr>
             <th><b>Desc</b></th>
              <th><b>Amount</b></th>
              <th><b>Date</b></th>
+            <th><b>Actions</b></th>
         </tr>
         {% for expense in expenses %}
         <tr>
             <td>{{ expense.description }}</td>
             <td>{{ expense.amount }}</td>
-            <!-- if date nie dostaroczna to wyświetl - -->
             <td>{{ expense.date }}</td>
+            <td>
+               <a class="btn btn-info btn-sm" href="{{ url_for('update_expense', id=expense.id) }}">Edit</a>
+
+                <form action="{{ url_for('delete_expense', id=expense.id) }}" method="post" style="display:inline;">
+                  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
         </tr>
         {% endfor %}
     </table>
-</body>
-</html>
+{% endblock %}

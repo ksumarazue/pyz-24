@@ -1,4 +1,4 @@
-from expense import Expense
+from .expense import Expense
 class BudgetManger:
     def __init__(self):
         self.expenses = []
@@ -24,4 +24,7 @@ class BudgetManger:
             if exp.id == id:
                 return exp
 
-        return None
+
+    def delete_expense(self, id):
+        expense = self.get_expense(id)
+        self.expenses.remove(expense)
