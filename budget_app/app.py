@@ -1,11 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
-from models.budget_manager import BudgetManger
+from flask import Flask
+from database import db
+from controllers.budget.views import budget_bp
 
 app = Flask(__name__)
-budget_manager = BudgetManger()
+app.secret_key = 'secret-key'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+with app.app_context():
+    db.create_all()
+
+app.register_blueprint(budget_bp)
+
 
 @app.route('/')
+@app.route('/index')
 def home():
+<<<<<<< HEAD
     return render_template('index.html', expenses=budget_manager.expenses)
 
 
@@ -40,6 +53,10 @@ def update_expense(id):
 def delete_expense(id):
     budget_manager.delete_expense(id)
     return redirect(url_for('home'))
+=======
+    # TODO: add index.html template
+    return 'Hello hello!'
+>>>>>>> 7de5fa2ccfcc2497493f9d4fced3a04af99866da
 
 
 if __name__ == '__main__':

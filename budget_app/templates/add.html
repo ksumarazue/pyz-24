@@ -1,7 +1,12 @@
 {% extends "_base.html" %}
 {% block content %}
+<<<<<<< HEAD
     <h1>Add New Expense</h1>
     <form action="{{ url_for('create_expense') }}" method="post">
+=======
+    <h1 class="text-info">Add New Expense</h1>
+   <form action="{{ url_for('budget.create_expense') }}" method="post">
+>>>>>>> 7de5fa2ccfcc2497493f9d4fced3a04af99866da
         <div class="row">
         <div class="mb-3 col-4">
         <label class="form-label" for="description">Description:</label><br>
@@ -13,7 +18,11 @@
         <label class="form-label" for="date">Date:</label><br>
         <input class="form-control" type="date" id="date" name="date"><br>
         <br>
+<<<<<<< HEAD
         <input class="btn btn-success btn-lg" type="submit" value="Submit">
+=======
+        <input class="form-control btn btn-success shadow-lg" type="submit" value="Submit">
+>>>>>>> 7de5fa2ccfcc2497493f9d4fced3a04af99866da
         </div>
         </div>
     </form>
