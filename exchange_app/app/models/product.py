@@ -1,5 +1,5 @@
-from ..app_init import db
 from datetime import datetime
+from ..database import db
 
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -8,3 +8,4 @@ class Product(db.Model):
     price_pln = db.Column(db.Float)
     last_updated = db.Column(db.DateTime, default=datetime.utcnow())
     source = db.Column(db.String(30), nullable=True)
+    # data?
